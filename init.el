@@ -1,7 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
 ;; Install package manager
-(defvar elpaca-installer-version 0.2)
+(defvar elpaca-installer-version 0.3)
 (defvar elpaca-directory (expand-file-name "elpaca/" user-emacs-directory))
 (defvar elpaca-builds-directory (expand-file-name "builds/" elpaca-directory))
 (defvar elpaca-repos-directory (expand-file-name "repos/" elpaca-directory))
@@ -65,6 +67,8 @@
   (setq elpaca-use-package-by-default t))
 
 (elpaca-wait)
+
+(require 'init-user)
 
 ;; Set up general - a keybinding manager
 (use-package general
@@ -457,6 +461,7 @@
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-file)
   (add-to-list 'completion-at-point-functions #'cape-symbol))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
